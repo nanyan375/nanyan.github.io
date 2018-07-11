@@ -258,6 +258,7 @@
 
       
 
+      </span>
       
 
       
@@ -356,6 +357,22 @@
   
 
   
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2018/07/10/HEXO-GITHUB搭建个人博客/",
+  owner: 'nanyan375',
+  repo: 'blog-comments',
+  oauth: {
+    client_id: '426b8d5b3bba3b36d06a',
+    client_secret: 'c53749a03315a15b91dc0ec66c73eb537e4578b6',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -370,9 +387,15 @@
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
+        <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
     </div>
   </div>
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
