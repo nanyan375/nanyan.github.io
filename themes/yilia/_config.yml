@@ -93,6 +93,7 @@ disqus: false
 #5、Gitment
 gitment_owner: nanyan375      #你的 GitHub ID
 gitment_repo: 'blog-comments'          #存储评论的 repo
+gitment_id: '<%= page.date %>'
 gitment_oauth:
   client_id: '426b8d5b3bba3b36d06a'           #client ID
   client_secret: 'c53749a03315a15b91dc0ec66c73eb537e4578b6'       #client secret
