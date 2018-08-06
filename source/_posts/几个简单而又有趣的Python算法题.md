@@ -9,14 +9,15 @@ tags: python 算法 leetcode
 
 ## 2.推理题
 
-抓了a,b,c,d四名犯罪嫌疑人，其中有一人是小偷，审讯中：
+> 抓了a,b,c,d四名犯罪嫌疑人，其中有一人是小偷，审讯中：
 
 * a说我不是小偷；
 * b说c是小偷；
 * c说小偷肯定是d；
 * d说c胡说！
 
-其中有三个人说的是实话，一个人说的是假话，请编程推断谁是小偷（用穷举法和逻辑表达式）。
+> 其中有三个人说的是实话，一个人说的是假话，请编程推断谁是小偷（用穷举法和逻辑表达式）。
+
 这个题其实不难，很适合用来锻炼自己编码解决实际问题的能力。
 ```
 def thief_is():
@@ -84,7 +85,7 @@ def twosum(nums, target):
 
 ### b.有效的数独
 
-判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。
+> 判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。
 
     数字 1-9 在每一行只能出现一次。
     数字 1-9 在每一列只能出现一次。
@@ -92,10 +93,8 @@ def twosum(nums, target):
 
 ![PtfOsA.png](https://s1.ax1x.com/2018/07/26/PtfOsA.png)
 
-上图是一个部分填充的有效的数独。
-
+> 上图是一个部分填充的有效的数独。
 数独部分空格内已填入了数字，空白格用 '.' 表示。
-
 示例 1:
 ```
 输入:
@@ -148,8 +147,7 @@ def isValidSudoku(board):
 
 ### c.旋转图像
 
-给定一个 n × n 的二维矩阵表示一个图像。将图像顺时针旋转 90 度。说明：你必须在原地旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要使用另一个矩阵来旋转图像。
-
+> 给定一个 n × n 的二维矩阵表示一个图像。将图像顺时针旋转 90 度。说明：你必须在原地旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要使用另一个矩阵来旋转图像。
 示例 :
 ```
 给定 matrix = 
@@ -166,4 +164,89 @@ def isValidSudoku(board):
   [9,6,3]
 ]
 ```
+此题的解题思路大致为以下三种:
 
+* 通过观察,旋转90度的效果等价于将矩阵沿着对角线对转,然后再沿着中间列对折,如下图所示(红色表示对称轴):
+
+<font color="#dd0000">1</font> &nbsp; 2 &nbsp; 3 &nbsp; &nbsp; &nbsp; &nbsp; 1 &nbsp; <font color="#dd0000">4</font>  &nbsp; 7 &nbsp; &nbsp; &nbsp; &nbsp; 7 &nbsp; 4 &nbsp; 1
+4 &nbsp; <font color="#dd0000">5</font> &nbsp; 6  &nbsp; -> &nbsp; 2 &nbsp; <font color="#dd0000">5</font> &nbsp; 8 &nbsp; -> &nbsp; 8 &nbsp; 5 &nbsp; 2
+7 &nbsp; 8 &nbsp; <font color="#dd0000">9</font> &nbsp; &nbsp; &nbsp; &nbsp; 3 &nbsp; <font color="#dd0000">6</font> &nbsp; 9 &nbsp; &nbsp; &nbsp; &nbsp; 9 &nbsp; 6 &nbsp; 3
+
+其对应的解法为:
+```
+def rotate(matrix):
+    length = len(matrix)
+    for i in range(length):
+        for j in range(i+1,length):
+            temp = matrix[i][j]
+            matrix[i][j] = matrix[j][i]
+            matrix[j][i] = temp
+    for i in range(length):
+        matrix[i] = matrix[i][::-1]
+```
+
+* 通过观察,将矩阵从外向内一层层处理,首先处理最外层,处理方法为每四个做一个移动如下所示(红色表示将要移动的数字):
+
+<font color="#dd0000">1</font> &nbsp; 2 &nbsp; <font color="#dd0000">3</font> &nbsp; &nbsp; &nbsp; &nbsp; 7 &nbsp; <font color="#dd0000">2</font> &nbsp; 1 &nbsp; &nbsp; &nbsp; &nbsp; 7 &nbsp; 4 &nbsp; 1
+4 &nbsp; 5 &nbsp; 6 &nbsp; => &nbsp;<font color="#dd0000">4</font> &nbsp; 5 &nbsp; <font color="#dd0000">6</font> => &nbsp;  8 &nbsp; 5 &nbsp; 2
+<font color="#dd0000">7</font> &nbsp; 8 &nbsp; <font color="#dd0000">9</font> &nbsp; &nbsp; &nbsp; &nbsp; 9 &nbsp; <font color="#dd0000">8</font> &nbsp; 3 &nbsp; &nbsp; &nbsp; &nbsp; 9 &nbsp; 6 &nbsp; 3
+
+> 左上角的元素1，旋转之后再右上角，那么脚标的变化就是
+[0][0] --> [0][2]
+其他的元素以此类推的旋转：
+[0][2] --> [2][2]
+[2][2] --> [2][0]
+[2][0] --> [0][0]
+[0][1] --> [1][1]
+[1][1] --> [2][1]
+[2][1] --> [1][0]
+[1][0] --> [0][1]
+如果是4*4矩阵的话,脚标变化为:
+[0][0] --> [0][3]
+[0][3] --> [3][3]
+[3][3] --> [3][0]
+[3][0] --> [0][0]
+[0][1] --> [1][3]
+[0][2] --> [2][3]
+[1][1] --> [1][2]
+使用归纳法，我们可以发现规律：`[x][y] --> [y][n - 1 - x]`
+
+其对应的解法为:
+```
+def rotate(matrix):
+    if matrix == None or len(matrix) <= 1:
+        return
+    
+    def swap(i, j, x, y):
+        temp = matrix[i][j]
+        matrix[i][j] = matrix[x][y]
+        matrix[x][y] = temp
+        
+    n = len(matrix)
+    for i in range(0, n):
+        for j in range(i, n-i-1):
+            swap(i,j, n-j-1, i)
+            swap(n-j-1, i, j, n-i-1)
+            swap(n-j-1, i, n-i-1, n-j-1)
+```
+
+* 当然,还有其他的更加Pythonic的方法,使用python自带的函数和方法,代码量可以非常少,但是效率却不见得是最快的,比不上上述的两种:
+
+```
+def rotate(self, matrix):
+    matrix[:]=map(lambda x:x[::-1],zip(*matrix))
+```
+
+最后,再贴一个自己的答案,以做纪念(执行用时：68 ms):
+
+```
+def rotate(self, matrix):
+    n = len(matrix)
+    for i in range(n):
+        new_row = [row[i] for row in matrix[:n][::-1]]
+        matrix.append(new_row)
+    del matrix[:n]
+```
+
+#### 参考引用
+[[LeetCode] Rotate Image 旋转图像](https://www.cnblogs.com/grandyang/p/4389572.html)  作者:Grandyang
