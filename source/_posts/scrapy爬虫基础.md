@@ -56,7 +56,7 @@ Use "scrapy <command> -h" to see more info about a command
 
 `scrapy` 内置两种数据提取语法： `CSS` 和 `XPath` 。下面通过例子来看看怎么使用，有这样一个 HTML 文件：
 
-```python
+``` html
 <html>
  <head>
   <base href='http://example.com/' />
@@ -125,7 +125,7 @@ scrapy shell http://doc.scrapy.org/en/latest/_static/selectors-sample1.html
 
 如果要提取所有 a 标签的 href 链接，可以这样写：
 
-```python
+``` python
 >>> response.css('div#images a::attr(href)').extract()
 ['image1.html', 'image2.html', 'image3.html', 'image4.html', 'image5.html']
 ```
@@ -212,21 +212,21 @@ XPath (XML Path Language) 是一门路径提取语言，最初被设计用来从
 
 `/` 表示从根节点开始选取，比如，你想要选取 `title` 节点，就需要按标签的阶级关系来定位：
 
-```
+``` bash
 >>> response.xpath('/html/head/title').extract()
 ['<title>xpath</title>']
 ```
 
 而实用 `//` 就可以不必管标签在文档中的位置：
 
-```
+```bash
 >>> response.xpath('//title').extract()
 ['<title>xpath</title>']
 ```
 
 当选取到的标签不止一个的时候，会返回一个列表，比如我们选取所有公司的名称所在的 `h2` 标签：
 
-```
+```bash
 >>> response.xpath('//h2').extract()
 ['<h2>阿里巴巴</h2>', '<h2>腾讯</h2>', '<h2>Facebook</h2>', '<h2>微软</h2>']
 ```

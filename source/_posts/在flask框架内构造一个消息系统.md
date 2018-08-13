@@ -27,7 +27,7 @@ tags: Python Flask 数据库 消息通知系统
 
 依照前述的程序设计思路,数据库(mongoengine)的设置如下:
 
-```
+``` python
 import time
 from mongoengine import Document, StringField, FloatField, ListField, BooleanField, \ 
         DateTimeField, ReferenceField
@@ -98,7 +98,8 @@ class Message(Document):
 #### 3.程序设计
 
 项目程序采用前后端分离的设计,代码如下:
-```
+
+``` python
 from datetime import datetime
 from flask import request, jsonify, Blueprint
 from flask_login import login_required, current_user
