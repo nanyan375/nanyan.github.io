@@ -146,6 +146,410 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Python实现ping工具-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/15/Python实现ping工具-一/">Python实现ping工具(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/15/Python实现ping工具-一/" class="archive-article-date">
+  	<time datetime="2018-12-15T07:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在linux系统里面我们经常会使用ping这个工具来判断服务器的网络状况，它的使用方式如下图所示：<br><img src="https://s1.ax1x.com/2018/12/15/FaeGnI.png" alt="FaeGnI.png"><br>从上图可知，ping以后显示的结果包括：</p>
+<ul>
+<li>被测试系统主机名和相应 IP 地址</li>
+<li>返回给当前主机的 ICMP 报文顺序号</li>
+<li>ttl 生存时间和往返时间 rtt（单位是毫秒，即千分之一秒）</li>
+</ul>
+<p>下面我们将使用python来实现这样一个工具的查询效果。<br></p>
+        
+          <a class="article-more-a" href="/2018/12/15/Python实现ping工具-一/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python ping ICMP struct select</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      </span>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/15/Python实现ping工具-一/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-由一个问题想到的Python类的属性设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/06/由一个问题想到的Python类的属性设置/">由一个问题想到的Python类的属性设置</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/06/由一个问题想到的Python类的属性设置/" class="archive-article-date">
+  	<time datetime="2018-09-06T13:14:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>Python的面向对象编程是Python语言中非常重要的一部分内容，对于Python新手来说也是比较难懂的。它的难不在于说逻辑有多复杂，内容有多繁琐，而是在于抽象的类对于没有经验的人来说很难想象它所代表的实际意义和在一个程序中所起到的作用。笔者也是如此，初学之时懵懵懂懂，但是在不断地实践过程中，对Python的理解也在逐步加深，这也是网上的大牛们往往会推荐大家无论如何要找一份实习的原因。</p>
+<h2 id="2-一个问题"><a href="#2-一个问题" class="headerlink" title="2. 一个问题"></a>2. 一个问题</h2><p>笔者在工作中遇到一个这样的问题：在一个mongoengine的类GoodsOrder里面有一个属性status，也叫字段，我需要对这个属性进行一些加工,需要在商品(Goods)里的库存stock变为0时status变为EXPIRED，请问我该如何去做？</p>
+        
+          <a class="article-more-a" href="/2018/09/06/由一个问题想到的Python类的属性设置/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python 类属性</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      </span>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/06/由一个问题想到的Python类的属性设置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-在flask框架内构造一个消息系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/在flask框架内构造一个消息系统/">在flask框架内构造一个消息系统</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/06/在flask框架内构造一个消息系统/" class="archive-article-date">
+  	<time datetime="2018-08-06T02:40:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在前不久的一段工作历程中，我曾经遇到一个问题。我当时要做一个消息通知系统，但是因为之前没有过类似的经验，而且对编程之道也是一片迷茫，所以完全不知该从何下手，于是在网上找了搜索各种资源，希望能够一劳永逸地能找到一个类似的项目，但是找了很久都没有找到符合自己需要的。倒是在这个过程中看到有网友推荐使用flask-socketIO来构造消息系统，也有人推介用socket+redis+gunicorn来构造。尽管当时这些东西对我来说还是很陌生而且高端，但为了解决自己的难题就硬着头皮看了好几天的这些内容。结果却让我很失望，看了这些知识以后，我无法把它们和自己的项目联系起来，还是和之前一样没有头绪。最后只能又厚着脸皮去问技术负责人，结果是我想复杂了，这个消息系统并不是即时通信，没必要用到socket编程，只需要每次请求接口时能够显示消息并统计未读消息就行了。这样一来，顿时觉得心里的压力小了很多，经过过去几天的思考和资料收集，对于这样一个相对简单的消息系统还是有些头绪的，很快我就有了思路，这篇文章即是对这一过程的总结。</p>
+<h4 id="1-程序设计思路"><a href="#1-程序设计思路" class="headerlink" title="1.程序设计思路"></a>1.程序设计思路</h4><p>这个消息通知系统要求能够实现的功能如下：</p>
+<ul>
+<li>运营人员发送系统公告；</li>
+<li>所有用户都能收到系统公告，并列出消息列表；</li>
+<li>当用户有未读消息时，页面要进行提示(例如标记小红点);</li>
+<li>当用户读取消息详情时，红点要消失；</li>
+<li>用户可以删除消息；</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/08/06/在flask框架内构造一个消息系统/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Python Flask 数据库 消息通知系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      </span>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/06/在flask框架内构造一个消息系统/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-几个简单而又有趣的Python算法题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/24/几个简单而又有趣的Python算法题/">几个简单而又有趣的Python算法题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/24/几个简单而又有趣的Python算法题/" class="archive-article-date">
+  	<time datetime="2018-07-24T05:47:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>作为一个合格的程序员，如果仅仅只是对工具或者框架熟悉，而不清楚算法，这肯定不是一个合格的，能够经得起时间考验的程序员。如果把程序员比作是一个武林高手，那么他的算法能力就是他的内功，只有内功修炼深厚了，学习框架，语言或者工具等才会快，并且能够真正的理解他们的用法。作为一个半路出家的低端程序员，为了锻炼自己的算法能力，于是决定在leetcode上刷题来提高自己。就这段时间以来我所遇到的一些有趣而又典型的算法题来跟大家做一个分享。</p>
+<h2 id="2-推理题"><a href="#2-推理题" class="headerlink" title="2.推理题"></a>2.推理题</h2><blockquote>
+<p>抓了a,b,c,d四名犯罪嫌疑人，其中有一人是小偷，审讯中：</p>
+</blockquote>
+<ul>
+<li>a说我不是小偷；</li>
+<li>b说c是小偷；</li>
+<li>c说小偷肯定是d；</li>
+<li>d说c胡说！</li>
+</ul>
+<blockquote>
+<p>其中有三个人说的是实话，一个人说的是假话，请编程推断谁是小偷（用穷举法和逻辑表达式）。</p>
+</blockquote>
+<p>这个题其实不难，很适合用来锻炼自己编码解决实际问题的能力。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">thief_is</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> thief <span class="keyword">in</span> (<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>):</span><br><span class="line">        sum = (<span class="string">'a'</span> != thief) + (thief == <span class="string">'c'</span>) + \</span><br><span class="line">            (thief == <span class="string">'d'</span>) + (thief != <span class="string">'d'</span>)</span><br><span class="line">        <span class="keyword">if</span> sum == <span class="number">3</span></span><br><span class="line">            print(<span class="string">"thief is %s"</span>%thief)</span><br></pre></td></tr></table></figure>
+<p>最后输出的结果为：thief is c<br>个人觉得这种解法真是非常的巧妙，仿佛就是天然为这道题目而生，让人感觉非常舒服。<br></p>
+        
+          <a class="article-more-a" href="/2018/07/24/几个简单而又有趣的Python算法题/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python 算法 leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      </span>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/24/几个简单而又有趣的Python算法题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-HEXO的配置和优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/19/HEXO的配置和优化/">HEXO的配置和优化</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/19/HEXO的配置和优化/" class="archive-article-date">
+  	<time datetime="2018-07-19T02:15:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h4><p>之前已经用github+hexo搭建了一个博客，并选用yilia主题来优化界面，其实基本的功能已经具备了，如果你只是纯粹的想把它当做是印象笔记一样来使用，那当然也是可以的。不过我相信，大部分同学折腾博客的初衷就是展示自己，结交好友。如果从这个角度来说，那么评论功能是一定要实现的。今天就着这些内容来和大家探讨一下。<br></p>
+        
+          <a class="article-more-a" href="/2018/07/19/HEXO的配置和优化/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      </span>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/19/HEXO的配置和优化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-HEXO-GITHUB搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -414,7 +818,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">python ping ICMP struct select</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">python 类属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python scrapy 爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python 算法 leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Python Flask 数据库 消息通知系统</a>
               </li>
             
             <div class="clearfix"></div>

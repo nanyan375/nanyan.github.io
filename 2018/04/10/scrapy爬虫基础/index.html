@@ -17,7 +17,7 @@
 <meta property="og:description" content="知识点 scrapy 爬虫框架介绍 scrapy 框架安装 数据提取器：CSS 和 XPATH scrapy shell 正则表达式数据提取  安装为了方便管理 Python 版本和依赖包，首先可以创建一个 python3.5 的虚拟环境。 12$ virtualenv -p python3.5 venv$ . venv/bin/activate 后面的scrapy爬虫代码都是基于这个虚拟环境，安">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://www.woaijiaojiaobao.top/2018/04/10/scrapy爬虫基础/scrapy_mindmap.png">
-<meta property="og:updated_time" content="2018-07-10T16:35:55.177Z">
+<meta property="og:updated_time" content="2018-09-06T13:04:39.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrapy爬虫基础">
 <meta name="twitter:description" content="知识点 scrapy 爬虫框架介绍 scrapy 框架安装 数据提取器：CSS 和 XPATH scrapy shell 正则表达式数据提取  安装为了方便管理 Python 版本和依赖包，首先可以创建一个 python3.5 的虚拟环境。 12$ virtualenv -p python3.5 venv$ . venv/bin/activate 后面的scrapy爬虫代码都是基于这个虚拟环境，安">
@@ -181,7 +181,7 @@
 <p>现在在命令行输入 scrapy，出现下面的内容说明已经安装成功了。<br><a id="more"></a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Scrapy <span class="number">1.4</span><span class="number">.0</span> - no active project</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  scrapy &lt;command&gt; [options] [args]</span><br><span class="line"></span><br><span class="line">Available commands:</span><br><span class="line">  bench         Run quick benchmark test</span><br><span class="line">  fetch         Fetch a URL using the Scrapy downloader</span><br><span class="line">  genspider     Generate new spider using pre-defined templates</span><br><span class="line">  runspider     Run a self-contained spider (without creating a project)</span><br><span class="line">  settings      Get settings values</span><br><span class="line">  shell         Interactive scraping console</span><br><span class="line">  startproject  Create new project</span><br><span class="line">  version       Print Scrapy version</span><br><span class="line">  view          Open URL <span class="keyword">in</span> browser, <span class="keyword">as</span> seen by Scrapy</span><br><span class="line"></span><br><span class="line">  [ more ]      More commands available when run <span class="keyword">from</span> project directory</span><br><span class="line"></span><br><span class="line">Use <span class="string">"scrapy &lt;command&gt; -h"</span> to see more info about a command</span><br></pre></td></tr></table></figure>
 <h3 id="数据提取器"><a href="#数据提取器" class="headerlink" title="数据提取器"></a>数据提取器</h3><p><code>scrapy</code> 内置两种数据提取语法： <code>CSS</code> 和 <code>XPath</code> 。下面通过例子来看看怎么使用，有这样一个 HTML 文件：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"> &lt;head&gt;</span><br><span class="line">  &lt;base href=<span class="string">'http://example.com/'</span> /&gt;</span><br><span class="line">  &lt;title&gt;Example website&lt;/title&gt;</span><br><span class="line"> &lt;/head&gt;</span><br><span class="line"> &lt;body&gt;</span><br><span class="line">  &lt;div id=<span class="string">'images'</span>&gt;</span><br><span class="line">   &lt;a href='image1.html'&gt;Name: My image 1 &lt;br /&gt;&lt;img src='image1_thumb.jpg' /&gt;&lt;/a&gt;</span><br><span class="line">   &lt;a href='image2.html'&gt;Name: My image 2 &lt;br /&gt;&lt;img src='image2_thumb.jpg' /&gt;&lt;/a&gt;</span><br><span class="line">   &lt;a href='image3.html'&gt;Name: My image 3 &lt;br /&gt;&lt;img src='image3_thumb.jpg' /&gt;&lt;/a&gt;</span><br><span class="line">   &lt;a href='image4.html'&gt;Name: My image 4 &lt;br /&gt;&lt;img src='image4_thumb.jpg' /&gt;&lt;/a&gt;</span><br><span class="line">   &lt;a href='image5.html'&gt;Name: My image 5 &lt;br /&gt;&lt;img src='image5_thumb.jpg' /&gt;&lt;/a&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"> &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">'http://example.com/'</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example website<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'images'</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'image1.html'</span>&gt;</span>Name: My image 1 <span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'image1_thumb.jpg'</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'image2.html'</span>&gt;</span>Name: My image 2 <span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'image2_thumb.jpg'</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'image3.html'</span>&gt;</span>Name: My image 3 <span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'image3_thumb.jpg'</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'image4.html'</span>&gt;</span>Name: My image 4 <span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'image4_thumb.jpg'</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'image5.html'</span>&gt;</span>Name: My image 5 <span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'image5_thumb.jpg'</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这是 <code>scrapy</code> 官方提供的一个网页，方便我们练习 <code>Selector</code>，它的地址是</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://doc.scrapy.org/en/latest/_static/selectors-sample1.html</span><br></pre></td></tr></table></figure>
 <h3 id="scrapy-shell"><a href="#scrapy-shell" class="headerlink" title="scrapy shell"></a>scrapy shell</h3><p><code>scrapy shell</code> 提供了一个交互式的 Python 环境方便我们测试和debug 爬虫，使用方法是</p>
@@ -243,11 +243,11 @@
 </tbody>
 </table>
 <p><code>/</code> 表示从根节点开始选取，比如，你想要选取 <code>title</code> 节点，就需要按标签的阶级关系来定位：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&apos;/html/head/title&apos;).extract()</span><br><span class="line">[&apos;&lt;title&gt;xpath&lt;/title&gt;&apos;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(<span class="string">'/html/head/title'</span>).extract()</span><br><span class="line">[<span class="string">'&lt;title&gt;xpath&lt;/title&gt;'</span>]</span><br></pre></td></tr></table></figure>
 <p>而实用 <code>//</code> 就可以不必管标签在文档中的位置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&apos;//title&apos;).extract()</span><br><span class="line">[&apos;&lt;title&gt;xpath&lt;/title&gt;&apos;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(<span class="string">'//title'</span>).extract()</span><br><span class="line">[<span class="string">'&lt;title&gt;xpath&lt;/title&gt;'</span>]</span><br></pre></td></tr></table></figure>
 <p>当选取到的标签不止一个的时候，会返回一个列表，比如我们选取所有公司的名称所在的 <code>h2</code> 标签：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&apos;//h2&apos;).extract()</span><br><span class="line">[&apos;&lt;h2&gt;阿里巴巴&lt;/h2&gt;&apos;, &apos;&lt;h2&gt;腾讯&lt;/h2&gt;&apos;, &apos;&lt;h2&gt;Facebook&lt;/h2&gt;&apos;, &apos;&lt;h2&gt;微软&lt;/h2&gt;&apos;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(<span class="string">'//h2'</span>).extract()</span><br><span class="line">[<span class="string">'&lt;h2&gt;阿里巴巴&lt;/h2&gt;'</span>, <span class="string">'&lt;h2&gt;腾讯&lt;/h2&gt;'</span>, <span class="string">'&lt;h2&gt;Facebook&lt;/h2&gt;'</span>, <span class="string">'&lt;h2&gt;微软&lt;/h2&gt;'</span>]</span><br></pre></td></tr></table></figure>
 <p>可以在选择表达式后面加上 <code>text()</code> 来指定只返回文本：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; response.xpath(&apos;//h2/text()&apos;).extract()</span><br><span class="line">[&apos;阿里巴巴&apos;, &apos;腾讯&apos;, &apos;Facebook&apos;, &apos;微软&apos;]</span><br></pre></td></tr></table></figure>
 <p>而如果想要选取属性值，在属性名称前面加上 <em>@</em> 符号就可以了，比如我们选取所有 <code>img</code> 的 <code>src</code> 属性：</p>
@@ -398,7 +398,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://www.woaijiaojiaobao.top/2018/04/10/scrapy爬虫基础/",
+  id: 'Tue Apr 10 2018 21:46:51 GMT+0800',
   owner: 'nanyan375',
   repo: 'blog-comments',
   oauth: {
@@ -408,6 +408,7 @@ var gitment = new Gitment({
 })
 gitment.render('gitment-ctn')
 </script>
+
   
 
 
@@ -511,7 +512,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">python ping ICMP struct select</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">python 类属性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python scrapy 爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python 算法 leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Python Flask 数据库 消息通知系统</a>
               </li>
             
             <div class="clearfix"></div>

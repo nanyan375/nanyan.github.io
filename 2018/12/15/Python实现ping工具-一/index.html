@@ -6,19 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.woaijiaojiaobao.top">
-  <title>Archives: 2018/7 | 她管不到的地方</title>
+  <title>Python实现ping工具(一) | 她管不到的地方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这个是一个分享自己技术心得的站点，主要的内容会是Python，web开发，linux运维方面的知识。">
-<meta name="keywords" content="Python Flask Web Linux">
-<meta property="og:type" content="website">
-<meta property="og:title" content="她管不到的地方">
-<meta property="og:url" content="http://www.woaijiaojiaobao.top/archives/2018/07/index.html">
+  <meta name="description" content="引入在linux系统里面我们经常会使用ping这个工具来判断服务器的网络状况，它的使用方式如下图所示：从上图可知，ping以后显示的结果包括：  被测试系统主机名和相应 IP 地址 返回给当前主机的 ICMP 报文顺序号 ttl 生存时间和往返时间 rtt（单位是毫秒，即千分之一秒）  下面我们将使用python来实现这样一个工具的查询效果。">
+<meta name="keywords" content="python ping ICMP struct select">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python实现ping工具(一)">
+<meta property="og:url" content="http://www.woaijiaojiaobao.top/2018/12/15/Python实现ping工具-一/index.html">
 <meta property="og:site_name" content="她管不到的地方">
-<meta property="og:description" content="这个是一个分享自己技术心得的站点，主要的内容会是Python，web开发，linux运维方面的知识。">
+<meta property="og:description" content="引入在linux系统里面我们经常会使用ping这个工具来判断服务器的网络状况，它的使用方式如下图所示：从上图可知，ping以后显示的结果包括：  被测试系统主机名和相应 IP 地址 返回给当前主机的 ICMP 报文顺序号 ttl 生存时间和往返时间 rtt（单位是毫秒，即千分之一秒）  下面我们将使用python来实现这样一个工具的查询效果。">
 <meta property="og:locale" content="zh">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/15/FaeGnI.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/15/Fan6YT.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/15/FanTk6.jpg">
+<meta property="og:updated_time" content="2018-12-15T09:44:16.278Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="她管不到的地方">
-<meta name="twitter:description" content="这个是一个分享自己技术心得的站点，主要的内容会是Python，web开发，linux运维方面的知识。">
+<meta name="twitter:title" content="Python实现ping工具(一)">
+<meta name="twitter:description" content="引入在linux系统里面我们经常会使用ping这个工具来判断服务器的网络状况，它的使用方式如下图所示：从上图可知，ping以后显示的结果包括：  被测试系统主机名和相应 IP 地址 返回给当前主机的 ICMP 报文顺序号 ttl 生存时间和往返时间 rtt（单位是毫秒，即千分之一秒）  下面我们将使用python来实现这样一个工具的查询效果。">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/12/15/FaeGnI.png">
   
     <link rel="alternative" href="/atom.xml" title="她管不到的地方" type="application/atom+xml">
   
@@ -144,125 +149,240 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Python实现ping工具-一" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/24/几个简单而又有趣的Python算法题/" class="archive-article-date">
-  	<time datetime="2018-07-24T05:47:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/24/几个简单而又有趣的Python算法题/">几个简单而又有趣的Python算法题</a>
+    <h1 class="article-title" itemprop="name">
+      Python实现ping工具(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/12/15/Python实现ping工具-一/" class="archive-article-date">
+  	<time datetime="2018-12-15T07:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在linux系统里面我们经常会使用ping这个工具来判断服务器的网络状况，它的使用方式如下图所示：<br><img src="https://s1.ax1x.com/2018/12/15/FaeGnI.png" alt="FaeGnI.png"><br>从上图可知，ping以后显示的结果包括：</p>
+<ul>
+<li>被测试系统主机名和相应 IP 地址</li>
+<li>返回给当前主机的 ICMP 报文顺序号</li>
+<li>ttl 生存时间和往返时间 rtt（单位是毫秒，即千分之一秒）</li>
+</ul>
+<p>下面我们将使用python来实现这样一个工具的查询效果。<br><a id="more"></a></p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>ping命令主要涉及到的是ICMP协议。</p>
+<blockquote>
+<p>ICMP 是（Internet Control Message Protocol）Internet 控制报文协议；它是 TCP/IP 协议族的一个子协议，用于在 IP 主机、路由器之间传递控制消息；ICMP是IP协议不可分割的一部分,ICMP是属于网络层的一个协议。</p>
+</blockquote>
+<p>ping的命令机制是往网络上另一主机系统发送报文消息，系统收到消息以后它会把报文消息原样送回给发送者。以此来测试网络的通畅情况。<br><img src="https://s1.ax1x.com/2018/12/15/Fan6YT.png" alt="Fan6YT.png"></p>
+<p>其中，发送的请求报文和回应报文格式都是一样的，正如下表所示：<br><img src="https://s1.ax1x.com/2018/12/15/FanTk6.jpg" alt="FanTk6.jpg"></p>
+<ul>
+<li>类型字段:</li>
+</ul>
+<blockquote>
+<ul>
+<li>回显请求报文其中类型为 0，代码为 0。</li>
+<li>回显应答报文其中类型为 8，代码为 0。</li>
+</ul>
+</blockquote>
+<ul>
+<li>校验和字段：</li>
+</ul>
+<blockquote>
+<p>包括数据在内的整个 ICMP 协议数据包的校验和，具体实现方法会在下面详细介绍。</p>
+</blockquote>
+<ul>
+<li>标识符字段：</li>
+</ul>
+<blockquote>
+<p>用于唯一标识 ICMP 报文，本项目使用程序的进程 id。因为如果同时在两个命令行终端执行 ping 命令的话，每个 ping 命令都会接收到所有的回显应答，所以需要根据标识符来判断回显应答是否应该接收。</p>
+</blockquote>
+<ul>
+<li>序号字段：</li>
+</ul>
+<blockquote>
+<p>ICMP 报文的序号。</p>
+</blockquote>
+<ul>
+<li>数据字段：</li>
+</ul>
+<blockquote>
+<p>也就是报文，本项目中我们将发送报文的时间戳放入数据字段，这样当接收到该报文应答的时候可以取出发送时间戳，将接收应答的时间戳减去发送时间戳就是报文往返时间（rtt）。</p>
+</blockquote>
+<h3 id="主机字节序和网络字节序"><a href="#主机字节序和网络字节序" class="headerlink" title="主机字节序和网络字节序"></a>主机字节序和网络字节序</h3><p>在不同 CPU 中，4字节整型数值1在内存空间的保存方式是不同的。4字节整型数值1可用二进制表示如下：</p>
+<p><code>00000000 00000000 00000000 00000001</code></p>
+<p>而有些CPU则以倒序保存。</p>
+<p><code>00000001 00000000 00000000 00000000</code></p>
+<p>所以，如果发送主机与接收主机CPU字节序不一样则就会出现问题。引申上面的问题，这就涉及到CPU解析数据的方式，其方式有2种：</p>
+<ul>
+<li><p>大端序（Big Endian）：高位字节存放到低位地址。</p>
+</li>
+<li><p>小端序（Little Endian）：高位字节存放到高位地址。</p>
+</li>
+</ul>
+<p>查看自己电脑的字节序可以使用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ipython</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.byteorder</span><br></pre></td></tr></table></figure>
+<p>由于不同CPU字节序不一样，因此，在通过网络传输数据时约定统一方式，这种约定称为网络字节序（Network Byte Order），非常简单——统一为大端序。而intel的主机一般是小端序，所以我们需要进行转换。以一个16位的数字为例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>n = <span class="number">0b1010101011111111</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(n &gt;&gt; <span class="number">8</span>)  <span class="comment">#得到高位的８个位</span></span><br><span class="line"><span class="string">'0b10101010'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin((n &lt;&lt; <span class="number">8</span>) &amp; <span class="number">0xff00</span>)  <span class="comment">#得到低位的８位</span></span><br><span class="line"><span class="string">'0b1111111100000000'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bn = ((n &lt;&lt; <span class="number">8</span>) &amp; <span class="number">0xff00</span>) | (n &gt;&gt; <span class="number">8</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(bn)</span><br><span class="line"><span class="string">'ob1111111110101010'</span></span><br></pre></td></tr></table></figure>
+<p>由此即可完成主机字节序向网络字节序的转换。</p>
+<h3 id="校验和算法"><a href="#校验和算法" class="headerlink" title="校验和算法"></a>校验和算法</h3><p>ICMP 对首部和报文数据一起计算校验和。检验和算法可以分成两步来实现。首先在发送端，有以下三步：</p>
+<ol>
+<li>把校验和字段置为0</li>
+<li>对需要校验的数据看成以16bit为单位的数字组成，依次进行二进制求和</li>
+<li>将上一步的求和结果取反，存入校验和字段</li>
+</ol>
+<p>其次在接收端，也有相应的三步：</p>
+<ol>
+<li>对需要校验的数据看成以16bit为单位的数字组成，依次进行二进制求和，包括校验和字段</li>
+<li>将上一步的求和结果取反</li>
+<li>判断最终结果是否为0。如果为0，说明校验和正确。如果不为0，则协议栈会丢掉接收到的数据</li>
+</ol>
+<p>从上可以看出，归根到底，校验和算法就是二进制反码求和。由于先取反后相加与先相加后取反，得到的结果是一样的，所以上面的步骤都是先求和后取反。用python实现如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checksum</span><span class="params">(data)</span>:</span></span><br><span class="line">    n = len(data)</span><br><span class="line">    m = n % <span class="number">2</span></span><br><span class="line">    sum = <span class="number">0</span>  <span class="comment"># 将校验和初始化为0</span></span><br><span class="line">    <span class="comment"># 以16bit为单位，依次进行求和</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, n-m, <span class="number">2</span>):</span><br><span class="line">        sum += data[i] + (data[i+<span class="number">1</span>] &lt;&lt; <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> m:</span><br><span class="line">        sum += data[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 对校验和本身进行16bit求和</span></span><br><span class="line">    sum = (sum &gt;&gt; <span class="number">16</span>) + (sum &amp; <span class="number">0xffff</span>)</span><br><span class="line">    sum += sum &gt;&gt; <span class="number">16</span>  <span class="comment"># 如果还有高于16位的继续求和</span></span><br><span class="line">    <span class="comment"># 对结果求反</span></span><br><span class="line">    answer = ~sum &amp; <span class="number">0xffff</span></span><br><span class="line">    <span class="comment"># 主机字节序转网络字节序</span></span><br><span class="line">    answer = ((answer &lt;&lt; <span class="number">8</span>) &amp; <span class="number">0xff00</span>) | (answer &gt;&gt; <span class="number">8</span>)</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+<p>下一节内容将继续实现ping命令。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python 算法 leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python ping ICMP struct select</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      </span>
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.woaijiaojiaobao.top/2018/12/15/Python实现ping工具-一/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/HEXO的配置和优化/" class="archive-article-date">
-  	<time datetime="2018-07-19T02:15:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/06/由一个问题想到的Python类的属性设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">由一个问题想到的Python类的属性设置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/19/HEXO的配置和优化/">HEXO的配置和优化</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/HEXO-GITHUB搭建个人博客/" class="archive-article-date">
-  	<time datetime="2018-07-10T13:46:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/HEXO-GITHUB搭建个人博客/">HEXO+GITHUB搭建个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'Sat Dec 15 2018 15:41:51 GMT+0800',
+  owner: 'nanyan375',
+  repo: 'blog-comments',
+  oauth: {
+    client_id: '426b8d5b3bba3b36d06a',
+    client_secret: 'c53749a03315a15b91dc0ec66c73eb537e4578b6',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+
+  
 
 
           </div>
@@ -291,8 +411,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

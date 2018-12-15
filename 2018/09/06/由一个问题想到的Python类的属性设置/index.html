@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.woaijiaojiaobao.top">
-  <title>Archives: 2018/7 | 她管不到的地方</title>
+  <title>由一个问题想到的Python类的属性设置 | 她管不到的地方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这个是一个分享自己技术心得的站点，主要的内容会是Python，web开发，linux运维方面的知识。">
-<meta name="keywords" content="Python Flask Web Linux">
-<meta property="og:type" content="website">
-<meta property="og:title" content="她管不到的地方">
-<meta property="og:url" content="http://www.woaijiaojiaobao.top/archives/2018/07/index.html">
+  <meta name="description" content="1. 前言Python的面向对象编程是Python语言中非常重要的一部分内容，对于Python新手来说也是比较难懂的。它的难不在于说逻辑有多复杂，内容有多繁琐，而是在于抽象的类对于没有经验的人来说很难想象它所代表的实际意义和在一个程序中所起到的作用。笔者也是如此，初学之时懵懵懂懂，但是在不断地实践过程中，对Python的理解也在逐步加深，这也是网上的大牛们往往会推荐大家无论如何要找一份实习的原因。">
+<meta name="keywords" content="python 类属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="由一个问题想到的Python类的属性设置">
+<meta property="og:url" content="http://www.woaijiaojiaobao.top/2018/09/06/由一个问题想到的Python类的属性设置/index.html">
 <meta property="og:site_name" content="她管不到的地方">
-<meta property="og:description" content="这个是一个分享自己技术心得的站点，主要的内容会是Python，web开发，linux运维方面的知识。">
+<meta property="og:description" content="1. 前言Python的面向对象编程是Python语言中非常重要的一部分内容，对于Python新手来说也是比较难懂的。它的难不在于说逻辑有多复杂，内容有多繁琐，而是在于抽象的类对于没有经验的人来说很难想象它所代表的实际意义和在一个程序中所起到的作用。笔者也是如此，初学之时懵懵懂懂，但是在不断地实践过程中，对Python的理解也在逐步加深，这也是网上的大牛们往往会推荐大家无论如何要找一份实习的原因。">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2018-11-05T08:46:57.724Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="她管不到的地方">
-<meta name="twitter:description" content="这个是一个分享自己技术心得的站点，主要的内容会是Python，web开发，linux运维方面的知识。">
+<meta name="twitter:title" content="由一个问题想到的Python类的属性设置">
+<meta name="twitter:description" content="1. 前言Python的面向对象编程是Python语言中非常重要的一部分内容，对于Python新手来说也是比较难懂的。它的难不在于说逻辑有多复杂，内容有多繁琐，而是在于抽象的类对于没有经验的人来说很难想象它所代表的实际意义和在一个程序中所起到的作用。笔者也是如此，初学之时懵懵懂懂，但是在不断地实践过程中，对Python的理解也在逐步加深，这也是网上的大牛们往往会推荐大家无论如何要找一份实习的原因。">
   
     <link rel="alternative" href="/atom.xml" title="她管不到的地方" type="application/atom+xml">
   
@@ -144,125 +145,197 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-由一个问题想到的Python类的属性设置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/24/几个简单而又有趣的Python算法题/" class="archive-article-date">
-  	<time datetime="2018-07-24T05:47:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/24/几个简单而又有趣的Python算法题/">几个简单而又有趣的Python算法题</a>
+    <h1 class="article-title" itemprop="name">
+      由一个问题想到的Python类的属性设置
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/09/06/由一个问题想到的Python类的属性设置/" class="archive-article-date">
+  	<time datetime="2018-09-06T13:14:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>Python的面向对象编程是Python语言中非常重要的一部分内容，对于Python新手来说也是比较难懂的。它的难不在于说逻辑有多复杂，内容有多繁琐，而是在于抽象的类对于没有经验的人来说很难想象它所代表的实际意义和在一个程序中所起到的作用。笔者也是如此，初学之时懵懵懂懂，但是在不断地实践过程中，对Python的理解也在逐步加深，这也是网上的大牛们往往会推荐大家无论如何要找一份实习的原因。</p>
+<h2 id="2-一个问题"><a href="#2-一个问题" class="headerlink" title="2. 一个问题"></a>2. 一个问题</h2><p>笔者在工作中遇到一个这样的问题：在一个mongoengine的类GoodsOrder里面有一个属性status，也叫字段，我需要对这个属性进行一些加工,需要在商品(Goods)里的库存stock变为0时status变为EXPIRED，请问我该如何去做？<a id="more"></a>(代码如下)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Goods</span><span class="params">(db.Document)</span>:</span></span><br><span class="line">    <span class="string">""" 商品 """</span></span><br><span class="line">    name = db.StringField(max_length=<span class="number">255</span>, required=<span class="keyword">True</span>, verbose_name=<span class="string">'名称'</span>)</span><br><span class="line">    stock = db.IntField(default=<span class="number">0</span>, verbose_name=<span class="string">'库存'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsOrder</span><span class="params">(db.Document)</span>:</span></span><br><span class="line">    <span class="string">""" 商品订单 """</span></span><br><span class="line">    STATUS = db.choices(</span><br><span class="line">        WAITING_PAY=<span class="string">'等待兑换'</span>,</span><br><span class="line">        WAITING_DELIVER=<span class="string">'等待发货'</span>,</span><br><span class="line">        WAITING_RECIEVE=<span class="string">"等待收货"</span>,</span><br><span class="line">        FINISHED=<span class="string">'完成兑换'</span>,</span><br><span class="line">        EXPIRED=<span class="string">"已过期"</span>)</span><br><span class="line"></span><br><span class="line">    goods = db.ReferenceField(<span class="string">'Goods'</span>, required=<span class="keyword">True</span>, verbose_name=<span class="string">'名称'</span>)</span><br><span class="line">    status = db.StringField(default=STATUS.WAITING_PAY, choices=STATUS.CHOICES,</span><br><span class="line">            verbose_name=<span class="string">'订单状态'</span>)</span><br></pre></td></tr></table></figure>
+<p>很显然，我们需要对status进行重写，于是笔者一开始将代码写为如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsOrder</span><span class="params">(db.Document)</span>:</span></span><br><span class="line">    ......</span><br><span class="line">    status = db.StringField(default=STATUS.WAITING_PAY, choices=STATUS.CHOICES,</span><br><span class="line">            verbose_name=<span class="string">'订单状态'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">status</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.goods.stack &lt;= <span class="number">0</span>:</span><br><span class="line">            self.status = STATUS.EXPIRED</span><br><span class="line">        <span class="keyword">return</span> self.status</span><br></pre></td></tr></table></figure>
+<p>但是很显然，这种写法是错误，从语法上就过不了关，在类里面就会有两个status的属性，一个的字段，一个是装饰器下的方法。那么我们应该怎样做呢？</p>
+<h2 id="3-解决办法"><a href="#3-解决办法" class="headerlink" title="3. 解决办法"></a>3. 解决办法</h2><p>对于这种情况，也许会有很多解决办法，笔者即将阐述的是比较常用的一种，其思路是将GoodsOrder的<code>status</code>字段改为私有属性<code>_status</code>然后再对status进行改写，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoodsOrder</span><span class="params">(db.Document)</span>:</span></span><br><span class="line">    <span class="string">""" 商品订单 """</span></span><br><span class="line">    STATUS = db.choices(</span><br><span class="line">        WAITING_PAY=<span class="string">'等待兑换'</span>,</span><br><span class="line">        WAITING_DELIVER=<span class="string">'等待发货'</span>,</span><br><span class="line">        WAITING_RECIEVE=<span class="string">"等待收货"</span>,</span><br><span class="line">        FINISHED=<span class="string">'完成兑换'</span>,</span><br><span class="line">        EXPIRED=<span class="string">"已过期"</span>)</span><br><span class="line"></span><br><span class="line">    goods = db.ReferenceField(<span class="string">'Goods'</span>, required=<span class="keyword">True</span>, verbose_name=<span class="string">'名称'</span>)</span><br><span class="line">    _status = db.StringField(default=STATUS.WAITING_PAY, choices=STATUS.CHOICES,</span><br><span class="line">            verbose_name=<span class="string">'订单状态'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">status</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.goods.stack &lt;= <span class="number">0</span>:</span><br><span class="line">            self._status = STATUS.EXPIRED</span><br><span class="line">        <span class="keyword">return</span> self._status</span><br></pre></td></tr></table></figure>
+<p>这样一来，<code>status</code>将取代<code>_status</code>供给外界调用，而每次调用时又都会执行if判断语句，从而确保了status在库存为0时的状态是<code>EXPIRED</code>。</p>
+<h2 id="4-推广与升华"><a href="#4-推广与升华" class="headerlink" title="4. 推广与升华"></a>4. 推广与升华</h2><p>上述的做法除了方便对属性进行加工以外其实还具有其他的作用.<code>_status</code>这种形式的我们称之为私有属性,用来表示只有在类内部才能使用,但这只是形式上的,事实上我们仍然可以从外部对其进行改写.为了实现真正的私有,在Python中也有一套经常会被用到的’组合拳’.我们以如下代码为例:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_login <span class="keyword">import</span> UserMixin</span><br><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line"><span class="keyword">from</span> werkzeug.security <span class="keyword">import</span> generate_password_hash, check_password_hash</span><br><span class="line"></span><br><span class="line">db = SQLAlchemy()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span>:</span></span><br><span class="line">    ....</span><br><span class="line">    _password = db.Column(<span class="string">'password'</span>, db.String(<span class="number">255</span>), nullable=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">password</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._password</span><br><span class="line"></span><br><span class="line"><span class="meta">    @password.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">password</span><span class="params">(self, orig_password)</span>:</span></span><br><span class="line">        self._password = generate_password_hash(orig_password)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check_password</span><span class="params">(self, password)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> check_password_hash(self._password, password)</span><br><span class="line"></span><br><span class="line">    ....</span><br></pre></td></tr></table></figure>
+<p>(代码为flask里的一个用户model)</p>
+<p>在所有的应用当中,密码这一属性是非常私密的,我们要防止外部有任何程序能够对其进行随意的修改,当然也需要对其进行加密,上述的代码正是说明了这一过程.为了更好地理解其中的妙处,我们还需要清楚几点深层次的东西:</p>
+<ul>
+<li><p>python中用<code>&quot;.&quot;</code>操作来访问和改写类的属性成员时，会调用<code>__get__</code>和<code>__set__</code>方法，python会查找<code>class.__dict__</code>字典，对对应值进行操作。比如<code>C.x</code>会调用<code>C.__get__</code>访问最终读取<code>C.__dict__[x]</code>元素;</p>
+</li>
+<li><p>通过 <code>property</code>函数或者装饰器调用属性,实际是使用<code>fget</code>, <code>fset</code>, <code>fdel</code>函数对应变量操作地读取<code>(get)</code>，设置<code>(set)</code>和删除<code>(del)</code>函数。而<code>property</code>对象<code>&lt;property object&gt;</code>有三个类方法，即<code>setter</code>, <code>getter</code>和<code>delete</code>，用于之后设置相应的函数;</p>
+</li>
+</ul>
+<p>因此,上述代码的妙处在于:</p>
+<ol>
+<li>将密码<code>password</code>变为了真正的私有属性,防止可以直接从外部对其进行赋值而造成其的随便改动;</li>
+<li>对密码这一属性进行了<code>加密</code>这一加工过程,增加了密码的功能性;</li>
+<li>通过使用<code>装饰器</code>使代码更加的美观和简洁.</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python 算法 leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python 类属性</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      </span>
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.woaijiaojiaobao.top/2018/09/06/由一个问题想到的Python类的属性设置/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/HEXO的配置和优化/" class="archive-article-date">
-  	<time datetime="2018-07-19T02:15:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/12/15/Python实现ping工具-一/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Python实现ping工具(一)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/06/在flask框架内构造一个消息系统/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在flask框架内构造一个消息系统</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/19/HEXO的配置和优化/">HEXO的配置和优化</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/10/HEXO-GITHUB搭建个人博客/" class="archive-article-date">
-  	<time datetime="2018-07-10T13:46:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/10/HEXO-GITHUB搭建个人博客/">HEXO+GITHUB搭建个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'Thu Sep 06 2018 21:14:43 GMT+0800',
+  owner: 'nanyan375',
+  repo: 'blog-comments',
+  oauth: {
+    client_id: '426b8d5b3bba3b36d06a',
+    client_secret: 'c53749a03315a15b91dc0ec66c73eb537e4578b6',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+
+  
 
 
           </div>
@@ -291,8 +364,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
