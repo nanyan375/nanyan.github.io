@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/15/FaeGnI.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/15/Fan6YT.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/15/FanTk6.jpg">
-<meta property="og:updated_time" content="2018-12-15T09:44:16.278Z">
+<meta property="og:updated_time" content="2018-12-17T09:46:51.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python实现ping工具(一)">
 <meta name="twitter:description" content="引入在linux系统里面我们经常会使用ping这个工具来判断服务器的网络状况，它的使用方式如下图所示：从上图可知，ping以后显示的结果包括：  被测试系统主机名和相应 IP 地址 返回给当前主机的 ICMP 报文顺序号 ttl 生存时间和往返时间 rtt（单位是毫秒，即千分之一秒）  下面我们将使用python来实现这样一个工具的查询效果。">
@@ -213,7 +213,7 @@
 <li>数据字段：</li>
 </ul>
 <blockquote>
-<p>也就是报文，本项目中我们将发送报文的时间戳放入数据字段，这样当接收到该报文应答的时候可以取出发送时间戳，将接收应答的时间戳减去发送时间戳就是报文往返时间（rtt）。</p>
+<p>也就是报文，本项目中我们将发送一个固定长度的字符串。</p>
 </blockquote>
 <h3 id="主机字节序和网络字节序"><a href="#主机字节序和网络字节序" class="headerlink" title="主机字节序和网络字节序"></a>主机字节序和网络字节序</h3><p>在不同 CPU 中，4字节整型数值1在内存空间的保存方式是不同的。4字节整型数值1可用二进制表示如下：</p>
 <p><code>00000000 00000000 00000000 00000001</code></p>
@@ -329,6 +329,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/12/15/Python实现ping工具-二/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Python实现ping工具(二)
+        
+      </div>
+    </a>
   
   
     <a href="/2018/09/06/由一个问题想到的Python类的属性设置/" id="article-nav-older" class="article-nav-link-wrap">
@@ -497,11 +506,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python 算法 leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">Python Flask 数据库 消息通知系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python Flask 数据库 消息通知系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">python 算法 leetcode</a>
               </li>
             
             <div class="clearfix"></div>

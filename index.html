@@ -146,6 +146,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Python实现ping工具-二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/15/Python实现ping工具-二/">Python实现ping工具(二)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/15/Python实现ping工具-二/" class="archive-article-date">
+  	<time datetime="2018-12-15T14:32:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第一部分阐述了ping工具的原理和涉及到的协议方面的知识，接下来我们需要使用python语言去实现它们，主要涉及到的模块有struct,select,socket。socket我想大家应该都比较熟悉，所以重点说一下前两个模块。</p>
+<h3 id="struct模块"><a href="#struct模块" class="headerlink" title="struct模块"></a>struct模块</h3><p>在网络通信当中，大多传递的数据是以二进制流（binary data）存在的。当传递字符串时，不必担心太多的问题，而当传递诸如int、char之类的基本数据的时候，就需要有一种机制将某些特定的结构体类型打包成二进制流的字符串然后再网络传输，而接收端也应该可以通过某种机制进行解包还原出原始的结构体数据。python中的struct模块就提供了这样的机制，该模块的主要作用就是对python基本类型值与用python字符串格式表示的C struct类型间的转化（This module performs conversions between Python values and C structs represented as Python strings.）。在我们这里主要用到的函数是pack和unpack。下面我们举例来实践它：</p>
+        
+          <a class="article-more-a" href="/2018/12/15/Python实现ping工具-二/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python ping ICMP struct select</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      </span>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/15/Python实现ping工具-二/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Python实现ping工具-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -830,11 +908,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python 算法 leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">Python Flask 数据库 消息通知系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python Flask 数据库 消息通知系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">python 算法 leetcode</a>
               </li>
             
             <div class="clearfix"></div>
